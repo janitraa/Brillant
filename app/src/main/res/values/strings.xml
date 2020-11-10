@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Brillant</string>
+    <string name="greetings">Hello, \nJanitra!</string>
+    <string name="mood_question">How\'s your mood today?</string>
+    <string name="happy">Happy</string>
+    <string name="sad">Sad</string>
+    <string name="fear">Fear</string>
+    <string name="angry">Angry</string>
 </resources>

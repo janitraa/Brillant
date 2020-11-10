@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Brillant</string>
+    <string name="greetings">Halo, \nJanitra!</string>
+    <string name="mood_question">Bagaimana mood kamu hari ini?</string>
+    <string name="happy">Senang</string>
+    <string name="sad">Sedih</string>
+    <string name="fear">Takut</string>
+    <string name="angry">Marah</string>
+</resources>

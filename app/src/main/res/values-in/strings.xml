@@ -7,4 +7,12 @@
     <string name="sad">Sedih</string>
     <string name="fear">Takut</string>
     <string name="angry">Marah</string>
+    <string name="upload_image">Unggah Gambar</string>
+    <string name="first_name">Nama Depan</string>
+    <string name="last_name">Nama Belakang</string>
+    <string name="email">Email</string>
+    <string name="dob">Tanggal Lahir</string>
+    <string name="goals">Cita-cita</string>
+    <string name="dream_job">Pekerjaan Impian</string>
+    <string name="edit">Edit</string>
 </resources>

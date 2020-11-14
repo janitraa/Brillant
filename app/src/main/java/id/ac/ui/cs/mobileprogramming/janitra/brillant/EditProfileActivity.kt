@@ -1,15 +1,22 @@
 package id.ac.ui.cs.mobileprogramming.janitra.brillant
 
+import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.EditText
+import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.fragment_profile.*
 
 class EditProfileActivity : AppCompatActivity() {
+    val GALLERY_REQUEST_CODE = 1
 
+    private lateinit var uploadImage: TextView
     private lateinit var editFirstName: EditText
     private lateinit var editLastName: EditText
     private lateinit var editEmail: EditText
@@ -30,6 +37,7 @@ class EditProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_profile)
 
+        uploadImage = findViewById(R.id.upload_image)
         editFirstName = findViewById(R.id.edit_first_name)
         editLastName = findViewById(R.id.edit_last_name)
         editEmail = findViewById(R.id.edit_email)
@@ -37,9 +45,21 @@ class EditProfileActivity : AppCompatActivity() {
         editGoals = findViewById(R.id.edit_goals)
         editDreamJob = findViewById(R.id.edit_dream_job)
 
+        uploadImage.setOnClickListener {
+            uploadImage()
+        }
 
-        supportActionBar?.setTitle("Cancel")
+        supportActionBar?.setTitle("CANCEL")
         setTitle("Edit Profile")
+    }
+
+    fun uploadImage() {
+        var intent = Intent(Intent.ACTION_PICK)
+        intent.setType("image/*")
+        val mimeTypes = arrayOf("image/jpeg", "image/png")
+        intent.putExtra(Intent.EXTRA_MIME_TYPES, mimeTypes)
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
+        startActivityForResult(intent, GALLERY_REQUEST_CODE)
     }
 
     fun editProfile() {

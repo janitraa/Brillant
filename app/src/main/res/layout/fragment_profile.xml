@@ -12,6 +12,7 @@
             android:layout_marginStart="30dp">
 
             <ImageView
+                android:id="@+id/view_image"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_margin="10dp"
@@ -31,6 +32,7 @@
                     android:layout_marginTop="29dp"
                     android:layout_marginEnd="10dp"
                     android:fontFamily="@font/lato"
+                    android:textColor="@color/colorBlack"
                     android:textSize="20sp" />
 
                 <TextView
@@ -41,6 +43,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="10dp"
                     android:fontFamily="@font/lato"
+                    android:textColor="@color/colorBlack"
                     android:textSize="20sp" />
 
             </LinearLayout>
@@ -64,6 +67,7 @@
                 android:fontFamily="@font/lato"
                 android:text="@string/dob"
                 android:textSize="14sp"
+                android:textColor="@color/colorBlack"
                 android:textStyle="bold" />
 
             <TextView
@@ -91,6 +95,7 @@
                 android:fontFamily="@font/lato"
                 android:text="@string/goals"
                 android:textSize="14sp"
+                android:textColor="@color/colorBlack"
                 android:textStyle="bold" />
 
             <TextView
@@ -118,6 +123,7 @@
                 android:fontFamily="@font/lato"
                 android:text="@string/dream_job"
                 android:textSize="14sp"
+                android:textColor="@color/colorBlack"
                 android:textStyle="bold" />
 
             <TextView

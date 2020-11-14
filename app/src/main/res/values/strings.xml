@@ -14,4 +14,14 @@
     <string name="goals">Goals</string>
     <string name="dream_job">Dream Job</string>
     <string name="edit">Edit</string>
+    <string name="home">Home</string>
+    <string name="deadline">Deadline</string>
+    <string name="profile">Profile</string>
+    <string name="tags">Tags</string>
+    <string name="task_name">Task Name</string>
+    <string name="status">Status</string>
+    <string name="due_date">Due Date</string>
+    <string name="notification">Notification</string>
+    <string name="description">Description</string>
+    <string name="save">Save</string>
 </resources>

@@ -24,7 +24,7 @@
                 android:src="@drawable/ic_user_photo" />
 
             <TextView
-                android:id="@+id/edit_name"
+                android:id="@+id/upload_image"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -48,6 +48,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lato"
                 android:text="@string/first_name"
+                android:textColor="@color/colorBlack"
                 android:textSize="14sp" />
 
             <EditText
@@ -58,6 +59,7 @@
                 android:fontFamily="@font/lato"
                 android:hint="@string/first_name"
                 android:inputType="text"
+                android:textColor="@color/colorBlack"
                 android:textSize="14sp" />
 
         </LinearLayout>
@@ -76,6 +78,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lato"
                 android:text="@string/last_name"
+                android:textColor="@color/colorBlack"
                 android:textSize="14sp" />
 
             <EditText
@@ -104,6 +107,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lato"
                 android:text="@string/email"
+                android:textColor="@color/colorBlack"
                 android:textSize="14sp" />
 
             <EditText
@@ -132,6 +136,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lato"
                 android:text="@string/dob"
+                android:textColor="@color/colorBlack"
                 android:textSize="14sp" />
 
             <EditText
@@ -160,6 +165,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lato"
                 android:text="@string/goals"
+                android:textColor="@color/colorBlack"
                 android:textSize="14sp" />
 
             <EditText
@@ -188,6 +194,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lato"
                 android:text="@string/dream_job"
+                android:textColor="@color/colorBlack"
                 android:textSize="14sp" />
 
             <EditText

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Brillant</string>
+    <string name="upload_image">Unggah Gambar</string>
+    <string name="first_name">Nama Depan</string>
+    <string name="last_name">Nama Belakang</string>
+    <string name="email">Email</string>
+    <string name="dob">Tanggal Lahir</string>
+    <string name="goals">Cita-cita</string>
+    <string name="dream_job">Pekerjaan Impian</string>
+    <string name="edit">Edit</string>
+</resources>

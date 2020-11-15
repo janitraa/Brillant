@@ -11,21 +11,21 @@ class ProfileViewModel (
     private val allProfile: LiveData<List<Profile>> = profileRepository.getAllProfile()
 
     @kotlinx.coroutines.ObsoleteCoroutinesApi
-    fun insert(contacts: Profile) {
-        profileRepository.insertProfile(contacts)
+    fun insert(profile: Profile) {
+        profileRepository.insertProfile(profile)
     }
 
     @kotlinx.coroutines.ObsoleteCoroutinesApi
-    fun update(contacts: Profile) {
-        profileRepository.updateProfile(contacts)
+    fun update(profile: Profile) {
+        profileRepository.updateProfile(profile)
     }
 
     @kotlinx.coroutines.ObsoleteCoroutinesApi
-    fun delete(contacts: Profile) {
-        profileRepository.deleteProfile(contacts)
+    fun delete(profile: Profile) {
+        profileRepository.deleteProfile(profile)
     }
 
-    fun getAllContacts(): LiveData<List<Profile>> {
+    fun getAllProfile(): LiveData<List<Profile>> {
         return allProfile
     }
 }

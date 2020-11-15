@@ -7,8 +7,9 @@ import android.view.MenuItem
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import id.ac.ui.cs.mobileprogramming.janitra.brillant.data.Task
 
-class NewTaskActivity : AppCompatActivity() {
+class NewTaskActivity (val data: Task, val position: Int): AppCompatActivity() {
     private lateinit var editTaskName: EditText
     private lateinit var editDescription: EditText
     private lateinit var editTags: EditText
@@ -45,10 +46,10 @@ class NewTaskActivity : AppCompatActivity() {
         val description: String = editDescription.text.toString()
         val tags: String = editTags.text.toString()
         val status: String = editStatus.text.toString()
-        val due_date: String = editDueDate.text.toString()
+        val dueDate: String = editDueDate.text.toString()
         val notification: String = editNotification.text.toString()
 
-        if (taskName.trim().isEmpty() || due_date.trim().isEmpty()) {
+        if (taskName.trim().isEmpty() || dueDate.trim().isEmpty()) {
             Toast.makeText(this, "Please insert task name and due date", Toast.LENGTH_SHORT).show()
             return
         }
@@ -58,7 +59,7 @@ class NewTaskActivity : AppCompatActivity() {
         data.putExtra(EXTRA_DESCRIPTION, description)
         data.putExtra(EXTRA_TAGS, tags)
         data.putExtra(EXTRA_STATUS, status)
-        data.putExtra(EXTRA_DUE_DATE, due_date)
+        data.putExtra(EXTRA_DUE_DATE, dueDate)
         data.putExtra(EXTRA_NOTIFICATION, notification)
 
         setResult(RESULT_OK, data)

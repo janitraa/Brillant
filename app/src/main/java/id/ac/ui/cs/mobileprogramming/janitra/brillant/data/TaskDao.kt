@@ -5,17 +5,17 @@ import androidx.room.*
 import androidx.room.OnConflictStrategy.REPLACE
 
 @Dao
-interface ProfileDao {
+interface TaskDao {
 
-    @Query("SELECT * FROM profile_details")
-    fun getAll(): LiveData<List<@JvmSuppressWildcards Profile>>
+    @Query("SELECT * FROM task_details order by dueDate")
+    fun getAll(): LiveData<List<@JvmSuppressWildcards Task>>
 
     @Insert(onConflict = REPLACE)
-    fun insert(profile: Profile)
+    fun insert(task: Task)
 
     @Delete
-    fun delete(profile: Profile)
+    fun delete(task: Task)
 
     @Update
-    fun update(profile: Profile)
+    fun update(task: Task)
 }

@@ -2,9 +2,9 @@ package id.ac.ui.cs.mobileprogramming.janitra.brillant
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_welcome.*
 
 class WelcomeActivity : AppCompatActivity() {
 
@@ -26,6 +26,29 @@ class WelcomeActivity : AppCompatActivity() {
         happyBtn.setOnClickListener{
             val context = happyBtn.context
             val intent = Intent(context, MotivationActivity::class.java)
-            context.startActivity(intent)        }
+            intent.putExtra("message", "Yeay keep that up!")
+            context.startActivity(intent)
+        }
+
+        sadBtn.setOnClickListener{
+            val context = sadBtn.context
+            val intent = Intent(context, MotivationActivity::class.java)
+            intent.putExtra("message", "Hey, it's okay to cry. Find your happiness around you.")
+            context.startActivity(intent)
+        }
+
+        fearBtn.setOnClickListener{
+            val context = fearBtn.context
+            val intent = Intent(context, MotivationActivity::class.java)
+            intent.putExtra("message", "Hey, don't be scared. We always here for you.")
+            context.startActivity(intent)
+        }
+
+        angryBtn.setOnClickListener{
+            val context = angryBtn.context
+            val intent = Intent(context, MotivationActivity::class.java)
+            intent.putExtra("message", "Hey, keep calm. Don't also ruin other people's mood.")
+            context.startActivity(intent)
+        }
     }
 }

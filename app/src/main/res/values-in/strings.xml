@@ -13,7 +13,7 @@
     <string name="email">Email</string>
     <string name="dob">Tanggal Lahir</string>
     <string name="goals">Cita-cita</string>
-    <string name="dream_job">Pekerjaan Impian</string>
+    <string name="dream_job">Pekerjaan</string>
     <string name="edit">Edit</string>
     <string name="home">Beranda</string>
     <string name="deadline">Deadline</string>
@@ -25,4 +25,6 @@
     <string name="notification">Notifikasi</string>
     <string name="description">Deskripsi</string>
     <string name="save">Simpan</string>
+    <string name="go">MULAI</string>
+    <string name="pick">Pilih Tanggal</string>
 </resources>

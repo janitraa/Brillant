@@ -7,8 +7,8 @@ import androidx.room.OnConflictStrategy.REPLACE
 @Dao
 interface ProfileDao {
 
-    @Query("SELECT * FROM profile_details")
-    fun getAll(): LiveData<List<@JvmSuppressWildcards Profile>>
+    @Query("SELECT * FROM profile_details WHERE id=1")
+    fun getProfile(): Profile
 
     @Insert(onConflict = REPLACE)
     fun insert(profile: Profile)

@@ -11,5 +11,4 @@ data class Task (
     @ColumnInfo(name = "tags") var tags: String,
     @ColumnInfo(name = "status") var status: String,
     @ColumnInfo(name = "dueDate") var dueDate: String,
-    @ColumnInfo(name = "notification") var notification: String,
     @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "id") var id: Int = 0)

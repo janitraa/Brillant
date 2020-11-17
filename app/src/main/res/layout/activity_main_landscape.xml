@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
-        android:id="@+id/linear_layout_fragment_container"
+        android:id="@+id/fragment_container"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         android:weightSum="2"
@@ -16,7 +16,7 @@
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/linear_layout_fragment_home"
+            android:id="@+id/fragment_list_deadline"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1">
@@ -29,7 +29,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linear_layout_fragment_add_challenge"
+            android:id="@+id/fragment_new_task"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1">

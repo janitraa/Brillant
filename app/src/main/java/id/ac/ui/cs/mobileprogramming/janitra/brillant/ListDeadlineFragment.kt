@@ -33,7 +33,7 @@ class ListDeadlineFragment: Fragment() {
 
         val buttonAddTask = mView.findViewById(R.id.button_add) as ImageButton
         buttonAddTask.setOnClickListener {
-            val intent: Intent = Intent(mView.context, NewTaskActivity::class.java)
+            val intent = Intent(mView.context, NewTaskActivity::class.java)
             startActivityForResult(intent, ADD_DEADLINE_REQUEST)
         }
 
@@ -82,9 +82,10 @@ class ListDeadlineFragment: Fragment() {
                 val tags: String = data.getStringExtra(NewTaskActivity.EXTRA_TAGS)?: ""
                 val status: String = data.getStringExtra(NewTaskActivity.EXTRA_STATUS)?: ""
                 val dueDate: String = data.getStringExtra(NewTaskActivity.EXTRA_DUE_DATE)?: ""
-                val notification: String = data.getStringExtra(NewTaskActivity.EXTRA_NOTIFICATION)?: ""
 
-                val task = Task(taskName, description, tags, status, dueDate, notification)
+                val task = Task(taskName, description, tags, status, dueDate)
+//                val task = Task(taskName, description, tags, status)
+
                 taskViewModel.insert(task)
 
                 Toast.makeText(mView.context, "Task Saved", Toast.LENGTH_SHORT).show()

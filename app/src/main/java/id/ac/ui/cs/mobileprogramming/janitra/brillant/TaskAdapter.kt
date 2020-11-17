@@ -30,6 +30,9 @@ class TaskAdapter : RecyclerView.Adapter<TaskAdapter.ListViewHolder>() {
 
         var currentTask = listTask.get(position)
         holder.taskName.setText(currentTask.taskName)
+        holder.tags.setText(currentTask.tags)
+        holder.status.setText(currentTask.status)
+        holder.dueDate.setText(currentTask.dueDate)
 
         holder.itemView.setOnClickListener {
             onItemClickCallback.onItemClicked(listTask[holder.adapterPosition], position)
@@ -47,5 +50,9 @@ class TaskAdapter : RecyclerView.Adapter<TaskAdapter.ListViewHolder>() {
 
     inner class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var taskName: TextView = itemView.findViewById(R.id.task_name)
+        var tags: TextView = itemView.findViewById(R.id.tags)
+        var status: TextView = itemView.findViewById(R.id.status)
+        var dueDate: TextView = itemView.findViewById(R.id.due_date)
+
     }
 }

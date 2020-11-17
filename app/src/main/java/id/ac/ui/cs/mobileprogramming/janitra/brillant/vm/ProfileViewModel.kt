@@ -8,7 +8,7 @@ import id.ac.ui.cs.mobileprogramming.janitra.brillant.repository.ProfileReposito
 class ProfileViewModel (
     private val profileRepository: ProfileRepository
 ): ViewModel() {
-    private val allProfile: LiveData<List<Profile>> = profileRepository.getAllProfile()
+    private val allProfile: Profile = profileRepository.getAllProfile()
 
     @kotlinx.coroutines.ObsoleteCoroutinesApi
     fun insert(profile: Profile) {
@@ -25,7 +25,7 @@ class ProfileViewModel (
         profileRepository.deleteProfile(profile)
     }
 
-    fun getAllProfile(): LiveData<List<Profile>> {
+    fun getAllProfile(): Profile {
         return allProfile
     }
 }

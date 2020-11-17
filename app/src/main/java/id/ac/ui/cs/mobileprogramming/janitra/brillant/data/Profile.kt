@@ -12,4 +12,5 @@ data class Profile (
     @ColumnInfo(name = "dob") var dob: String,
     @ColumnInfo(name = "goals") var goals: String,
     @ColumnInfo(name = "dreamJob") var dreamJob: String,
-    @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "id") var id: Int = 0)
+    @ColumnInfo(name = "image") var image: String,
+    @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "id") var id: Int = 1)

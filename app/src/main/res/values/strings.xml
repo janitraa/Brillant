@@ -24,4 +24,6 @@
     <string name="notification">Notification</string>
     <string name="description">Description</string>
     <string name="save">Save</string>
+    <string name="go">GO</string>
+    <string name="pick">Pick a Date</string>
 </resources>

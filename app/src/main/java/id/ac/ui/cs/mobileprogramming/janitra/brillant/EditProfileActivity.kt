@@ -49,8 +49,10 @@ class EditProfileActivity : AppCompatActivity() {
             uploadImage()
         }
 
-        supportActionBar?.setTitle("CANCEL")
+//        supportActionBar?.setTitle("CANCEL")
         setTitle("Edit Profile")
+
+
     }
 
     fun uploadImage() {

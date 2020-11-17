@@ -9,9 +9,9 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.newSingleThreadContext
 
 class ProfileRepository private constructor(
-    private val profileDao: ProfileDao
-) {
-    private val allProfile: LiveData<List<Profile>> = profileDao.getAll()
+    private val profileDao: ProfileDao)
+{
+    private val allProfile: Profile = profileDao.getProfile()
 
     @kotlinx.coroutines.ObsoleteCoroutinesApi
     var thread = newSingleThreadContext("profileRepository") as CoroutineDispatcher
@@ -21,7 +21,7 @@ class ProfileRepository private constructor(
         profileDao.insert(profile)
     }
 
-    fun getAllProfile(): LiveData<List<Profile>> {
+    fun getAllProfile(): Profile {
         return allProfile
     }
 

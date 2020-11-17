@@ -25,7 +25,7 @@ class DetailsDeadlineFragment (val data: Task, val position: Int): Fragment() {
         binding.viewTags.setText(data.tags)
         binding.viewStatus.setText(data.status)
         binding.viewDueDate.setText(data.dueDate)
-        binding.viewNotif.setText(data.notification)
+
         return mView
     }
 }

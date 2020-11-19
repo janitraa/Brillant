@@ -15,7 +15,7 @@ abstract class ProfileDb: RoomDatabase() {
         @Volatile
         private var instance: ProfileDb? = null
 
-        fun getInstance(context: Context) = instance ?: synchronized(this) {
+        fun getInstance(context: Context) : ProfileDb? = instance ?: synchronized(this) {
             instance ?: Room.databaseBuilder(
                 context.getApplicationContext(),
                 ProfileDb::class.java,
@@ -23,6 +23,7 @@ abstract class ProfileDb: RoomDatabase() {
             )
                 .fallbackToDestructiveMigration()
                 .build()
+            return instance
         }
     }
 }

@@ -11,8 +11,8 @@ android {
     buildToolsVersion "29.0.3"
     defaultConfig {
         applicationId "id.ac.ui.cs.mobileprogramming.janitra.brillant"
-        minSdkVersion 19
-        targetSdkVersion 29
+        minSdkVersion 28
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -55,6 +55,8 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.0"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.0"
     implementation "androidx.recyclerview:recyclerview-selection:1.1.0-rc03"
+    implementation 'androidx.room:room-ktx:2.2.1'
+    kapt "androidx.room:room-compiler:2.2.1"
     kapt("androidx.room:room-compiler:2.2.0-rc01")
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

@@ -8,7 +8,13 @@ import androidx.room.OnConflictStrategy.REPLACE
 interface ProfileDao {
 
     @Query("SELECT * FROM profile_details WHERE id=1")
-    fun getProfile(): Profile
+    suspend fun getProfile(): Profile
+
+    @Query("SELECT * FROM profile_details")
+    fun getAllProfile(): List<Profile>
+
+    @Query("SELECT * FROM profile_details WHERE firstName=:firstName")
+    abstract fun getUserByName(firstName: String): Profile
 
     @Insert(onConflict = REPLACE)
     fun insert(profile: Profile)

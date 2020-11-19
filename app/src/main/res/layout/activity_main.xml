@@ -10,6 +10,7 @@
         android:id="@+id/fragment_home"
         android:name="id.ac.ui.cs.mobileprogramming.janitra.brillant.ListDeadlineFragment"
         android:layout_width="match_parent"
+        android:layout_marginBottom="?actionBarSize"
         android:layout_height="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

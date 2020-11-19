@@ -27,15 +27,6 @@ class WelcomeActivity : AppCompatActivity() {
             val context = happyBtn.context
             val intent = Intent(context, MotivationActivity::class.java)
             intent.putExtra("message", "Yeay keep that up!")
-            triggerANR()
-            Picasso.get()
-                .load("https://www.pngkey.com/png/full/352-3525258_dont-symbol-clipart-best-casino.png")
-                .placeholder(R.drawable.ic_noun_loading)
-                .resize(64, 64)
-                .memoryPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE)
-                .networkPolicy(NetworkPolicy.NO_CACHE, NetworkPolicy.NO_STORE)
-                .centerCrop()
-                .into(imageView)
             context.startActivity(intent)
         }
 

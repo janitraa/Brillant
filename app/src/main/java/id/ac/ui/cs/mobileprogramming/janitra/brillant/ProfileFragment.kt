@@ -37,11 +37,11 @@ class ProfileFragment: Fragment() {
             startActivityForResult(intent, ADD_DEADLINE_REQUEST)
         }
 //
-//        binding.viewName.setText(this.data.firstName)
-//        binding.viewEmail.setText(this.data.email)
-//        binding.viewDob.setText(this.data.dob)
-//        binding.viewGoals.setText(this.data.goals)
-//        binding.viewDreamJob.setText(this.data.dreamJob)
+//        binding.viewName.setText(data.firstName)
+//        binding.viewEmail.setText(data.email)
+//        binding.viewDob.setText(data.dob)
+//        binding.viewGoals.setText(data.goals)
+//        binding.viewDreamJob.setText(data.dreamJob)
 
         return mView
     }

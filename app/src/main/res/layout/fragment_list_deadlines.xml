@@ -13,6 +13,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scrollbars="vertical"
+            android:paddingBottom="12dp"
+            android:clipToPadding="false"
             tools:listitem="@layout/item_deadline">
 
         </androidx.recyclerview.widget.RecyclerView>

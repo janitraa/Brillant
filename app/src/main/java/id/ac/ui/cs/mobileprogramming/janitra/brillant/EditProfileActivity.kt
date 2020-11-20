@@ -86,9 +86,11 @@ class EditProfileActivity : AppCompatActivity() {
 //            val context = nextBtn.context
 //            val intent = Intent(context, WelcomeActivity::class.java)
 //            context.startActivity(intent)
+
             editProfile()
             viewModel.loaded.observe(this, Observer {
                 if (it == true) {
+                    Toast.makeText(this, viewModel.prof.toString(), Toast.LENGTH_LONG).show()
                     val intent = Intent(this, WelcomeActivity::class.java)
                     startActivity(intent)
                     finish()
@@ -110,7 +112,7 @@ class EditProfileActivity : AppCompatActivity() {
         startActivityForResult(intent, GALLERY_REQUEST_CODE)
     }
 
-    @kotlinx.coroutines.ObsoleteCoroutinesApi
+//    @kotlinx.coroutines.ObsoleteCoroutinesApi
     fun editProfile() {
         val firstName: String = editFirstName.text.toString()
         val lastName: String = editLastName.text.toString()
@@ -118,10 +120,8 @@ class EditProfileActivity : AppCompatActivity() {
         val dob: String = editDob.text.toString()
         val goals: String = editGoals.text.toString()
         val dreamJob: String = editDreamJob.text.toString()
-//        val bitmap: Bitmap = editDreamJob.text.toString()
 
-//
-//        if (firstName.trim().isEmpty() || email.trim().isEmpty()) {
+//        if (firstName.trim().isEmpty() || bitmap.isEmpty()) {
 //            Toast.makeText(this, "Please insert first name and email", Toast.LENGTH_SHORT).show()
 //            return
 //        }
@@ -139,8 +139,7 @@ class EditProfileActivity : AppCompatActivity() {
         spManager = SharedPreferenceManager(this)
         spManager.setFirstTime(false)
         viewModel.insertProfile(firstName, lastName, email, dob, goals, dreamJob, bitmap)
-        setResult(Activity.RESULT_OK)
-        finish()
+//        setResult(Activity.RESULT_OK)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -164,7 +163,7 @@ class EditProfileActivity : AppCompatActivity() {
         return true
     }
 
-    @kotlinx.coroutines.ObsoleteCoroutinesApi
+//    @kotlinx.coroutines.ObsoleteCoroutinesApi
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.edit_profile -> {

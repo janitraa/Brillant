@@ -2,6 +2,7 @@ package id.ac.ui.cs.mobileprogramming.janitra.brillant.vm
 
 import android.app.Application
 import android.graphics.Bitmap
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import id.ac.ui.cs.mobileprogramming.janitra.brillant.data.Profile
@@ -17,16 +18,20 @@ class EditProfileViewModel (application: Application) : AndroidViewModel(applica
     private lateinit var profile: Profile
     private val profileRepository = ProfileRepository(application)
     val loaded = MutableLiveData<Boolean>()
+    val prof = MutableLiveData<List<Profile>>()
 
-    @kotlinx.coroutines.ObsoleteCoroutinesApi
     fun insertProfile(firstName: String, lastName: String, email: String, dob: String, goals: String, dreamJob: String, image: Bitmap){
-        loaded.value = false
         GlobalScope.launch(Dispatchers.Main){
-            val jobs = withContext(Dispatchers.IO) {
+            loaded.value = false
+            withContext(Dispatchers.IO) {
                 val imageString = convertBitmap(image)
                 profile = Profile(firstName = firstName, lastName = lastName, email = email, dob = dob, goals = goals, dreamJob = dreamJob, image = imageString)
                 profileRepository.insertProfile(profile)
+
+//                prof.value = profile
+//                loaded.value = true
             }
+            prof.value = profileRepository.getAllProfile()
             loaded.value = true
         }
     }

@@ -31,7 +31,7 @@ class ProfileFragment: Fragment() {
     private lateinit var mView: View
     private lateinit var data: Profile
 
-    @kotlinx.coroutines.ObsoleteCoroutinesApi
+//    @kotlinx.coroutines.ObsoleteCoroutinesApi
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -66,23 +66,23 @@ class ProfileFragment: Fragment() {
         return mView
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (resultCode == Activity.RESULT_OK) {
-            when (requestCode) {
-                GALLERY_REQUEST_CODE -> {
-                    var selectedImage = data?.getData()
-                    binding.viewImage.setImageURI(selectedImage)
-
-                    val sharedPref = activity?.getSharedPreferences(SHARED_PREF_PROFILE_PAGE, Context.MODE_PRIVATE) ?: return
-                    with(sharedPref.edit()) {
-                        putString(SHARED_PREF_PROFILE_PIC, selectedImage.toString())
-                        commit()
-                    }
-                }
-                else -> {
-                    return
-                }
-            }
-        }
-    }
+//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+//        if (resultCode == Activity.RESULT_OK) {
+//            when (requestCode) {
+//                GALLERY_REQUEST_CODE -> {
+//                    var selectedImage = data?.getData()
+//                    binding.viewImage.setImageURI(selectedImage)
+//
+//                    val sharedPref = activity?.getSharedPreferences(SHARED_PREF_PROFILE_PAGE, Context.MODE_PRIVATE) ?: return
+//                    with(sharedPref.edit()) {
+//                        putString(SHARED_PREF_PROFILE_PIC, selectedImage.toString())
+//                        commit()
+//                    }
+//                }
+//                else -> {
+//                    return
+//                }
+//            }
+//        }
+//    }
 }

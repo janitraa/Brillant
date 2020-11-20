@@ -39,6 +39,7 @@ class WelcomeActivity : AppCompatActivity() {
             intent.putExtra("message", "Yeay keep it up!")
             intent.putExtra("photo", "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pinterest.com%2Fpin%2F692006298982723077%2F&psig=AOvVaw1_htQESJN8RxIlGhkVT1mc&ust=1605947816402000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLDa9PrbkO0CFQAAAAAdAAAAABAD")
             context.startActivity(intent)
+            finish()
         }
 
         sadBtn.setOnClickListener{
@@ -47,6 +48,7 @@ class WelcomeActivity : AppCompatActivity() {
             intent.putExtra("message", "Hey, it's okay to cry. Find your happiness around you.")
             intent.putExtra("photo", "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F23%2F2020%2F04%2F10%2Fdepression-and-anxiety-quotes-motivation-inspirational-corrie-ten-boom.jpg")
             context.startActivity(intent)
+            finish()
         }
 
         fearBtn.setOnClickListener{
@@ -55,6 +57,7 @@ class WelcomeActivity : AppCompatActivity() {
             intent.putExtra("message", "Hey, don't be scared. We always here for you.")
             intent.putExtra("photo", "https://cdn.lifehack.org/wp-content/uploads/2013/08/2c847ed9c1d7f1b61cf1bba2380558a6-375x380.jpg")
             context.startActivity(intent)
+            finish()
         }
 
         angryBtn.setOnClickListener{
@@ -63,6 +66,8 @@ class WelcomeActivity : AppCompatActivity() {
             intent.putExtra("message", "Hey, keep calm. Don't also ruin other people's mood.")
             intent.putExtra("photo", "https://www.ryrob.com/wp-content/uploads/2017/08/Hustle_Quotes_Motivation_-The-trouble-for-most-people-is-they-don%E2%80%99t--866x1024.jpg")
             context.startActivity(intent)
+            finish()
         }
+
     }
 }

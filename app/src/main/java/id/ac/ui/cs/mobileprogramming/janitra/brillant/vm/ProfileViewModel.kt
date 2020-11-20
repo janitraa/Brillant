@@ -19,25 +19,24 @@ class ProfileViewModel (application: Application) : AndroidViewModel(application
 
     private var profileRepository: ProfileRepository = ProfileRepository(application)
 
-    @kotlinx.coroutines.ObsoleteCoroutinesApi
-    var thread = newSingleThreadContext("profileRepository") as CoroutineDispatcher
+//    @kotlinx.coroutines.ObsoleteCoroutinesApi
+//    var thread = newSingleThreadContext("profileRepository") as CoroutineDispatcher
 
-    @kotlinx.coroutines.ObsoleteCoroutinesApi
-    fun insert(profile: Profile) {
-        profileRepository.insertProfile(profile)
-    }
+//    @kotlinx.coroutines.ObsoleteCoroutinesApi
+//    suspend fun insert(profile: Profile) {
+//        profileRepository.insertProfile(profile)
+//    }
+//
+//    @kotlinx.coroutines.ObsoleteCoroutinesApi
+//    fun update(profile: Profile) {
+//        profileRepository.updateProfile(profile)
+//    }
+//
+//    @kotlinx.coroutines.ObsoleteCoroutinesApi
+//    fun delete(profile: Profile) {
+//        profileRepository.deleteProfile(profile)
+//    }
 
-    @kotlinx.coroutines.ObsoleteCoroutinesApi
-    fun update(profile: Profile) {
-        profileRepository.updateProfile(profile)
-    }
-
-    @kotlinx.coroutines.ObsoleteCoroutinesApi
-    fun delete(profile: Profile) {
-        profileRepository.deleteProfile(profile)
-    }
-
-    @kotlinx.coroutines.ObsoleteCoroutinesApi
      fun getProfile() {
         GlobalScope.launch {
             withContext(Dispatchers.Main) {

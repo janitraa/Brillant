@@ -1,66 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
-    <RelativeLayout
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorWhite"
         android:padding="20dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="30dp">
-
-            <ImageView
-                android:id="@+id/view_image"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginTop="40dp"
-                android:src="@drawable/ic_user_photo"
-                android:contentDescription="@string/upload_image"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/view_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="49dp"
-                    android:layout_marginEnd="10dp"
-                    android:fontFamily="@font/lato"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/view_email"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:fontFamily="@font/lato"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="20sp" />
-
-            </LinearLayout>
-
-
-        </LinearLayout>
-
+        <ImageView
+            android:id="@+id/view_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="100dp"
+            android:src="@drawable/ic_user_photo"
+            android:contentDescription="@string/upload_image"/>
 
         <LinearLayout
+            android:id="@+id/linear1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="37dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="216dp">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_image"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/view_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/colorBlack"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/view_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato"
+                android:layout_gravity="center"
+                android:textColor="@color/colorBlack"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear1"
+            android:layout_marginTop="40dp">
 
             <TextView
                 android:id="@+id/text_dob"
@@ -74,7 +69,7 @@
 
             <TextView
                 android:id="@+id/view_dob"
-                android:layout_width="wrap_content"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:fontFamily="@font/lato"
@@ -83,12 +78,13 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/linear3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="37dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="266dp">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear2"
+            android:layout_marginTop="20dp">
 
             <TextView
                 android:id="@+id/text_goals"
@@ -102,7 +98,7 @@
 
             <TextView
                 android:id="@+id/view_goals"
-                android:layout_width="wrap_content"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:fontFamily="@font/lato"
@@ -111,12 +107,13 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/linear4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="37dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="316dp">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear3"
+            android:layout_marginTop="20dp">
 
             <TextView
                 android:id="@+id/text_dream_job"
@@ -130,23 +127,11 @@
 
             <TextView
                 android:id="@+id/view_dream_job"
-                android:layout_width="wrap_content"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:fontFamily="@font/lato"
                 android:textSize="14sp" />
         </LinearLayout>
-        <Button
-            android:id="@+id/edit_profile_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="140dp"
-            android:layout_marginEnd="140dp"
-            android:layout_alignParentTop="true"
-            android:text="@string/edit"
-            android:background="@color/colorBlue"
-            android:layout_marginTop="396dp"/>
-    </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -1,6 +1,5 @@
 package id.ac.ui.cs.mobileprogramming.janitra.brillant.data
 
-import androidx.lifecycle.LiveData
 import androidx.room.*
 import androidx.room.OnConflictStrategy
 
@@ -13,8 +12,8 @@ interface ProfileDao {
     @Query("SELECT * FROM profile_details")
     fun getAllProfile(): List<Profile>
 
-    @Query("SELECT * FROM profile_details WHERE firstName=:firstName")
-    fun getUserByName(firstName: String): Profile
+    @Query("SELECT * FROM profile_details WHERE name=:name")
+    fun getUserByName(name: String): Profile
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(profile: Profile)

@@ -7,6 +7,8 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import id.ac.ui.cs.mobileprogramming.janitra.brillant.ui.ListDeadlineFragment
+import id.ac.ui.cs.mobileprogramming.janitra.brillant.ui.ProfileFragment
 
 class MainActivity : AppCompatActivity() {
 

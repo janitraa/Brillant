@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import id.ac.ui.cs.mobileprogramming.janitra.brillant.data.Profile
+import id.ac.ui.cs.mobileprogramming.janitra.brillant.ui.ListDeadlineFragment
 
 class MainActivityLandscape : AppCompatActivity() {
 
@@ -16,16 +16,11 @@ class MainActivityLandscape : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_landscape)
 
-//        var actionBar = getSupportActionBar()
-//        actionBar?.setCustomView(R.layout.actionbar_layout)
-
         val navbar: BottomNavigationView = findViewById(R.id.navigation)
 
         navbar.setOnNavigationItemSelectedListener { menuItem ->
 
             val parentFragment: LinearLayout = findViewById(R.id.fragment_container)
-            val leftFragment: LinearLayout = findViewById(R.id.fragment_list_deadline)
-            val rightFragment: LinearLayout = findViewById(R.id.fragment_new_task)
 
             when (menuItem.itemId) {
                 R.id.navigation_home -> {

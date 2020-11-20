@@ -6,8 +6,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "profile_details")
 data class Profile (
-    @ColumnInfo(name = "firstName") var firstName: String,
-    @ColumnInfo(name = "lastName") var lastName: String,
+    @ColumnInfo(name = "name") var name: String,
     @ColumnInfo(name = "email") var email: String,
     @ColumnInfo(name = "dob") var dob: String,
     @ColumnInfo(name = "goals") var goals: String,

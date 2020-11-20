@@ -1,10 +1,11 @@
-package id.ac.ui.cs.mobileprogramming.janitra.brillant
+package id.ac.ui.cs.mobileprogramming.janitra.brillant.ui
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import id.ac.ui.cs.mobileprogramming.janitra.brillant.R
 import id.ac.ui.cs.mobileprogramming.janitra.brillant.data.Task
 
 class TaskAdapter : RecyclerView.Adapter<TaskAdapter.ListViewHolder>() {

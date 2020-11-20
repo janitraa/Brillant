@@ -2,7 +2,6 @@ package id.ac.ui.cs.mobileprogramming.janitra.brillant.vm
 
 import android.app.Application
 import android.graphics.Bitmap
-import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import id.ac.ui.cs.mobileprogramming.janitra.brillant.data.Profile
@@ -20,18 +19,20 @@ class EditProfileViewModel (application: Application) : AndroidViewModel(applica
     val loaded = MutableLiveData<Boolean>()
     val prof = MutableLiveData<List<Profile>>()
 
-    fun insertProfile(firstName: String, lastName: String, email: String, dob: String, goals: String, dreamJob: String, image: Bitmap){
+    fun insertProfile(name: String, email: String, dob: String, goals: String, dreamJob: String, image: Bitmap){
         GlobalScope.launch(Dispatchers.Main){
+            var profiles: List<Profile>?
             loaded.value = false
             withContext(Dispatchers.IO) {
                 val imageString = convertBitmap(image)
-                profile = Profile(firstName = firstName, lastName = lastName, email = email, dob = dob, goals = goals, dreamJob = dreamJob, image = imageString)
+                profile = Profile(name = name, email = email, dob = dob, goals = goals, dreamJob = dreamJob, image = imageString)
                 profileRepository.insertProfile(profile)
 
 //                prof.value = profile
 //                loaded.value = true
+                profiles = profileRepository.getAllProfile()
             }
-            prof.value = profileRepository.getAllProfile()
+            prof.value = profiles
             loaded.value = true
         }
     }

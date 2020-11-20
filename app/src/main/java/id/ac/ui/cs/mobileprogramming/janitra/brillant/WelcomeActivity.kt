@@ -3,9 +3,7 @@ package id.ac.ui.cs.mobileprogramming.janitra.brillant
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_welcome.*
 
 class WelcomeActivity : AppCompatActivity() {
 
@@ -13,7 +11,6 @@ class WelcomeActivity : AppCompatActivity() {
     lateinit var sadBtn: ImageButton
     lateinit var fearBtn: ImageButton
     lateinit var angryBtn: ImageButton
-    lateinit var sadImg: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,21 +20,12 @@ class WelcomeActivity : AppCompatActivity() {
         sadBtn = findViewById(R.id.sad)
         fearBtn = findViewById(R.id.fear)
         angryBtn = findViewById(R.id.angry)
-//        sadImg = Picasso.get()
-//            .load("https://img.pngio.com/free-great-job-png-free-great-jobpng-transparent-images-15006-good-job-png-1400_1163.png")
-//            .placeholder(R.drawable.ic_noun_loading)
-//            .resize(64, 64)
-//            .memoryPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE)
-//            .networkPolicy(NetworkPolicy.NO_CACHE, NetworkPolicy.NO_STORE)
-//            .centerCrop()
-//            .into(imageView)
-
 
         happyBtn.setOnClickListener{
             val context = happyBtn.context
             val intent = Intent(context, MotivationActivity::class.java)
             intent.putExtra("message", "Yeay keep it up!")
-            intent.putExtra("photo", "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pinterest.com%2Fpin%2F692006298982723077%2F&psig=AOvVaw1_htQESJN8RxIlGhkVT1mc&ust=1605947816402000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLDa9PrbkO0CFQAAAAAdAAAAABAD")
+            intent.putExtra("photo", "https://giantglam.com/wp-content/uploads/2019/05/Positive-Quotes-To-Make-You-Feel-Happy-1297026537910239513.jpg")
             context.startActivity(intent)
             finish()
         }
@@ -68,6 +56,5 @@ class WelcomeActivity : AppCompatActivity() {
             context.startActivity(intent)
             finish()
         }
-
     }
 }

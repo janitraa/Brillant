@@ -1,4 +1,4 @@
-package id.ac.ui.cs.mobileprogramming.janitra.brillant
+package id.ac.ui.cs.mobileprogramming.janitra.brillant.ui
 
 import android.app.*
 import android.content.Context
@@ -12,23 +12,18 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import java.util.*
 import androidx.core.app.NotificationCompat
+import id.ac.ui.cs.mobileprogramming.janitra.brillant.R
 import id.ac.ui.cs.mobileprogramming.janitra.brillant.broadcastreceiver.NotificationPublisher
 import java.text.SimpleDateFormat
 
 
 class NewTaskActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
-    var day = 0
-    var month: Int = 0
-    var year: Int = 0
     var hour: Int = 0
     var minute: Int = 0
     var mDay = 0
     var mMonth: Int = 0
     var mYear: Int = 0
-    var mHour: Int = 0
-    var mMinute: Int = 0
     private var txtDate: String = ""
-    private var txtTime: String = ""
 
     private val cal: Calendar = Calendar.getInstance()
 
@@ -67,7 +62,8 @@ class NewTaskActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
         editTags = findViewById(R.id.edit_tags)
         editStatus = findViewById(R.id.edit_status)
 
-        supportActionBar?.setTitle("CANCEL")
+        supportActionBar?.setHomeActionContentDescription("CANCEL")
+//        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_noun_close)
         setTitle("New Task")
     }
 
@@ -83,17 +79,12 @@ class NewTaskActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
         )
         val alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
         alarmManager.set(AlarmManager.RTC_WAKEUP, delay, pendingIntent)
-//        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,
-//            cal.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent)
     }
 
     private fun getNotification(content: String): Notification {
-//        val resultIntent = Intent(this, MainActivity::class.java)
-//        val resultPendingIntent: PendingIntent? = TaskStackBuilder.create(this).run {
-//            addNextIntentWithParentStack(resultIntent)
-//            getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT)
-//        }
-        val builder = NotificationCompat.Builder(this, default_notification_channel_id)
+        val builder = NotificationCompat.Builder(this,
+            default_notification_channel_id
+        )
         builder.setContentTitle("Due Date")
         builder.setContentText(content)
         builder.setSmallIcon(R.drawable.ic_launcher_foreground)
@@ -103,9 +94,6 @@ class NewTaskActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
     }
 
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int){
-//        mDay = dayOfMonth
-//        mYear = year
-//        mMonth = month
         cal.set(Calendar.DAY_OF_MONTH, dayOfMonth)
         cal.set(Calendar.MONTH, month)
         cal.set(Calendar.YEAR, year)
@@ -127,9 +115,6 @@ class NewTaskActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
         cal.set(Calendar.HOUR_OF_DAY, hours)
         cal.set(Calendar.MINUTE, minute)
         cal.set(Calendar.SECOND, 0)
-//        mMinute = minute
-//        txtTime = "$mHour:$mMinute"
-//        dueDateBtn.text = txtDate + txtTime
         updateLabel()
 
     }
@@ -139,7 +124,6 @@ class NewTaskActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
         val sdf = SimpleDateFormat(format, Locale.getDefault())
         txtDate = sdf.format(cal.time)
         dueDateBtn.setText(txtDate)
-//        scheduleNotification(getNotification(btnDate.getText().toString()), date.getTime())
     }
 
     fun newTask() {

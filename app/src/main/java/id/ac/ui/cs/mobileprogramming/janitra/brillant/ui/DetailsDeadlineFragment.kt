@@ -1,4 +1,4 @@
-package id.ac.ui.cs.mobileprogramming.janitra.brillant
+package id.ac.ui.cs.mobileprogramming.janitra.brillant.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater

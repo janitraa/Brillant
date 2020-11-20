@@ -1,4 +1,4 @@
-package id.ac.ui.cs.mobileprogramming.janitra.brillant
+package id.ac.ui.cs.mobileprogramming.janitra.brillant.ui
 
 import android.app.Activity
 import android.content.Intent
@@ -14,11 +14,11 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.lifecycle.ViewModelProviders
+import id.ac.ui.cs.mobileprogramming.janitra.brillant.R
 import id.ac.ui.cs.mobileprogramming.janitra.brillant.data.Task
 import id.ac.ui.cs.mobileprogramming.janitra.brillant.databinding.FragmentListDeadlinesBinding
 import id.ac.ui.cs.mobileprogramming.janitra.brillant.vm.TaskViewModel
 import id.ac.ui.cs.mobileprogramming.janitra.brillant.util.InjectorUtils
-import id.ac.ui.cs.mobileprogramming.janitra.brillant.NewTaskActivity
 
 class ListDeadlineFragment: Fragment() {
     private lateinit var recyclerView: RecyclerView
@@ -42,7 +42,10 @@ class ListDeadlineFragment: Fragment() {
     }
 
     fun goToSelectedTask(data: Task, position: Int) {
-        val fragment = DetailsDeadlineFragment(data, position)
+        val fragment = DetailsDeadlineFragment(
+            data,
+            position
+        )
         val fragmentTransaction: FragmentTransaction? = activity?.supportFragmentManager?.beginTransaction()
         fragmentTransaction?.replace(R.id.fragment_home, fragment, fragment.toString())
         fragmentTransaction?.addToBackStack(fragment.toString())
@@ -64,7 +67,8 @@ class ListDeadlineFragment: Fragment() {
             adapter.setTask(task)
         })
 
-        adapter.setOnItemClickCallback(object: TaskAdapter.OnItemClickCallback {
+        adapter.setOnItemClickCallback(object:
+            TaskAdapter.OnItemClickCallback {
             override fun onItemClicked(data: Task, position: Int) {
                 goToSelectedTask(data, position)
             }
@@ -84,7 +88,6 @@ class ListDeadlineFragment: Fragment() {
                 val dueDate: String = data.getStringExtra(NewTaskActivity.EXTRA_DUE_DATE)?: ""
 
                 val task = Task(taskName, description, tags, status, dueDate)
-//                val task = Task(taskName, description, tags, status)
 
                 taskViewModel.insert(task)
 

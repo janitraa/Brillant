@@ -23,7 +23,6 @@ abstract class ProfileDb: RoomDatabase() {
                             context.applicationContext,
                             ProfileDb::class.java, "profile_db"
                         )
-//                .fallbackToDestructiveMigration()
                             .build()
                     }
                 }

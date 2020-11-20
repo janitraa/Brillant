@@ -3,10 +3,7 @@ package id.ac.ui.cs.mobileprogramming.janitra.brillant.vm
 import android.app.Application
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.media.Image
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.*
 import id.ac.ui.cs.mobileprogramming.janitra.brillant.data.Profile
 import id.ac.ui.cs.mobileprogramming.janitra.brillant.repository.ProfileRepository
@@ -18,24 +15,6 @@ class ProfileViewModel (application: Application) : AndroidViewModel(application
     val profile = MutableLiveData<Profile>()
 
     private var profileRepository: ProfileRepository = ProfileRepository(application)
-
-//    @kotlinx.coroutines.ObsoleteCoroutinesApi
-//    var thread = newSingleThreadContext("profileRepository") as CoroutineDispatcher
-
-//    @kotlinx.coroutines.ObsoleteCoroutinesApi
-//    suspend fun insert(profile: Profile) {
-//        profileRepository.insertProfile(profile)
-//    }
-//
-//    @kotlinx.coroutines.ObsoleteCoroutinesApi
-//    fun update(profile: Profile) {
-//        profileRepository.updateProfile(profile)
-//    }
-//
-//    @kotlinx.coroutines.ObsoleteCoroutinesApi
-//    fun delete(profile: Profile) {
-//        profileRepository.deleteProfile(profile)
-//    }
 
      fun getProfile() {
         GlobalScope.launch {

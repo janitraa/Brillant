@@ -37,7 +37,7 @@ class ProfileViewModel (application: Application) : AndroidViewModel(application
         profileRepository.deleteProfile(profile)
     }
 
-//    @kotlinx.coroutines.ObsoleteCoroutinesApi
+    @kotlinx.coroutines.ObsoleteCoroutinesApi
      fun getProfile() {
         GlobalScope.launch {
             withContext(Dispatchers.Main) {

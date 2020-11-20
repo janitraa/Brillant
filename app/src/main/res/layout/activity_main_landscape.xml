@@ -37,7 +37,7 @@
                 android:id="@+id/fragment_add_challenge"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:name="NewTask"/>
+                android:name="id.ac.ui.cs.mobileprogramming.janitra.brillant.DetailsDeadlineFragment"/>
 
         </LinearLayout>
     </LinearLayout>

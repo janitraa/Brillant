@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -30,6 +31,7 @@ class ProfileFragment: Fragment() {
     private lateinit var mView: View
     private lateinit var data: Profile
 
+    @kotlinx.coroutines.ObsoleteCoroutinesApi
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -43,16 +45,18 @@ class ProfileFragment: Fragment() {
 
         profileViewModel.profile.observe(viewLifecycleOwner, Observer<Profile> {
             binding.viewName.text = it?.firstName
-            val bitmap: Bitmap = profileViewModel.convertToBitmap(it?.image!!)
-            binding.viewImage.setImageBitmap(bitmap)
+            Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_LONG).show()
+//            val bitmap: Bitmap = profileViewModel.convertToBitmap(it?.image!!)
+//            binding.viewImage.setImageBitmap(bitmap)
         })
 
-        val editBtn = mView.findViewById(R.id.edit_profile_btn) as Button
-        editBtn.setOnClickListener {
-            val intent = Intent(mView.context, EditProfileActivity::class.java)
-            startActivityForResult(intent, ADD_DEADLINE_REQUEST)
-        }
-//
+
+//        val editBtn = mView.findViewById(R.id.edit_profile_btn) as Button
+//        editBtn.setOnClickListener {
+//            val intent = Intent(mView.context, EditProfileActivity::class.java)
+//            startActivityForResult(intent, ADD_DEADLINE_REQUEST)
+//        }
+////
 //        binding.viewName.setText(data.firstName)
 //        binding.viewEmail.setText(data.email)
 //        binding.viewDob.setText(data.dob)

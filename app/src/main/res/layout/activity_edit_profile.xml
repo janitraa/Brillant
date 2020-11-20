@@ -34,6 +34,17 @@
 
         </LinearLayout>
 
+        <Button
+            android:id="@+id/next_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="137dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="170dp"
+            android:text="NEXT"
+            />
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -208,6 +219,6 @@
                 android:textSize="14sp" />
 
         </LinearLayout>
-    </RelativeLayout>
 
+    </RelativeLayout>
 </LinearLayout>

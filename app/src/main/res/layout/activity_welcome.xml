@@ -9,14 +9,14 @@
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginTop="120dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/app_name"
-        app:srcCompat="@color/colorYellow"
+        android:src="@drawable/ic_noun_brillant"
         android:contentDescription="@string/app_name"/>
 
     <TextView

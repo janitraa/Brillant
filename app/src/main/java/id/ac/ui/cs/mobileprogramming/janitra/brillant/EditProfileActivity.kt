@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil.setContentView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.Observer
 import id.ac.ui.cs.mobileprogramming.janitra.brillant.data.Profile
 import id.ac.ui.cs.mobileprogramming.janitra.brillant.sharedpreferences.SharedPreferenceManager
 import id.ac.ui.cs.mobileprogramming.janitra.brillant.vm.EditProfileViewModel
@@ -38,6 +39,7 @@ class EditProfileActivity : AppCompatActivity() {
 
     private lateinit var viewModel: EditProfileViewModel
 
+    private lateinit var nextBtn: Button
     private lateinit var editFirstName: EditText
     private lateinit var editLastName: EditText
     private lateinit var editEmail: EditText
@@ -73,13 +75,29 @@ class EditProfileActivity : AppCompatActivity() {
         editDob = findViewById(R.id.edit_dob)
         editGoals = findViewById(R.id.edit_goals)
         editDreamJob = findViewById(R.id.edit_dream_job)
+        nextBtn = findViewById(R.id.next_btn)
+
 
         uploadImage.setOnClickListener {
             uploadImage()
         }
 
+        nextBtn.setOnClickListener {
+//            val context = nextBtn.context
+//            val intent = Intent(context, WelcomeActivity::class.java)
+//            context.startActivity(intent)
+            editProfile()
+            viewModel.loaded.observe(this, Observer {
+                if (it == true) {
+                    val intent = Intent(this, WelcomeActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }
+            })
+        }
+
 //        supportActionBar?.setTitle("CANCEL")
-        setTitle("Edit Profile")
+//        setTitle("Edit Profile")
 //        return view
     }
 
@@ -100,6 +118,8 @@ class EditProfileActivity : AppCompatActivity() {
         val dob: String = editDob.text.toString()
         val goals: String = editGoals.text.toString()
         val dreamJob: String = editDreamJob.text.toString()
+//        val bitmap: Bitmap = editDreamJob.text.toString()
+
 //
 //        if (firstName.trim().isEmpty() || email.trim().isEmpty()) {
 //            Toast.makeText(this, "Please insert first name and email", Toast.LENGTH_SHORT).show()
@@ -118,16 +138,7 @@ class EditProfileActivity : AppCompatActivity() {
 //        finish()
         spManager = SharedPreferenceManager(this)
         spManager.setFirstTime(false)
-//            viewModel.inputUserInfo(inputName.text.toString().trim())
         viewModel.insertProfile(firstName, lastName, email, dob, goals, dreamJob, bitmap)
-//        viewModel.isDoneLoading.observe(viewLifecycleOwner, Observer {
-//            if (it == true) {
-//                loadingScreen.visibility = View.GONE
-//                val intent = Intent(activity, MainActivity::class.java)
-//                startActivity(intent)
-//                activity?.finish()
-//            }
-//        })
         setResult(Activity.RESULT_OK)
         finish()
     }

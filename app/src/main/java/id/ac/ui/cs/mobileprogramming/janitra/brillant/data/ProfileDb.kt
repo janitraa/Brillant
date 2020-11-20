@@ -15,14 +15,19 @@ abstract class ProfileDb: RoomDatabase() {
         @Volatile
         private var instance: ProfileDb? = null
 
-        fun getInstance(context: Context) : ProfileDb? = instance ?: synchronized(this) {
-            instance ?: Room.databaseBuilder(
-                context.getApplicationContext(),
-                ProfileDb::class.java,
-                "profile_db"
-            )
-                .fallbackToDestructiveMigration()
-                .build()
+        fun getInstance(context: Context) : ProfileDb? {
+            if(instance == null) {
+                synchronized(ProfileDb::class.java) {
+                    if (instance == null) {
+                        instance = Room.databaseBuilder(
+                            context.applicationContext,
+                            ProfileDb::class.java, "profile_db"
+                        )
+//                .fallbackToDestructiveMigration()
+                            .build()
+                    }
+                }
+            }
             return instance
         }
     }

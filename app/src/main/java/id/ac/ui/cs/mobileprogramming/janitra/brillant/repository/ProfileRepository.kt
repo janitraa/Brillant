@@ -33,11 +33,11 @@ class ProfileRepository (application: Application) : CoroutineScope {
 
     fun insertProfile(profile: Profile) {
         profileDao?.insert(profile)
-        Log.d(TAG,"success")
+        Log.d(TAG,profileDao?.getProfile().toString())
 
     }
 
-    suspend fun getProfile(): Profile? {
+    fun getProfile(): Profile? {
         return profileDao?.getProfile()
     }
 

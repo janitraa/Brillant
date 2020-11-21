@@ -63,6 +63,7 @@ class ListDeadlineFragment: Fragment() {
 
         taskViewModel = ViewModelProviders.of(this, factory)
             .get(TaskViewModel::class.java)
+
         taskViewModel.getAllTask().observe(this, Observer { task ->
             adapter.setTask(task)
         })

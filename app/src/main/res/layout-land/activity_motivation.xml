@@ -13,7 +13,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_margin="80dp"
+        android:layout_marginTop="40dp"
         android:text="@string/app_name"
         android:textAlignment="center"
         android:fontFamily="@font/lato"
@@ -26,7 +26,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/message"
-        android:src="@drawable/ic_sad_img"
         android:contentDescription="@string/app_name"
         />
 
@@ -41,7 +40,6 @@
         android:text="@string/go"
         android:fontFamily="@font/lato"
         android:textSize="18sp"
-        android:layout_marginTop="20dp"
         android:background="@color/colorYellow"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>

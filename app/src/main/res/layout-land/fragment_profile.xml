@@ -8,6 +8,16 @@
         android:scrollbars="vertical"
         android:padding="20dp">
 
+        <LinearLayout
+            android:id="@+id/linear1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            >
+
         <ImageView
             android:id="@+id/view_image"
             android:layout_width="100dp"
@@ -15,13 +25,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="100dp"
             android:src="@drawable/ic_user_photo"
             android:contentDescription="@string/upload_image"/>
 
         <LinearLayout
-            android:id="@+id/linear1"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -47,6 +55,7 @@
                 android:layout_gravity="center"
                 android:textColor="@color/colorBlack"
                 android:textSize="20sp" />
+        </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
@@ -134,5 +143,16 @@
                 android:fontFamily="@font/lato"
                 android:textSize="14sp" />
         </LinearLayout>
+        <Button
+            android:id="@+id/edit_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear4"
+            android:layout_marginTop="20dp"
+            android:background="@color/colorLightBlue"
+            android:text="@string/edit"
+            />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

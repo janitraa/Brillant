@@ -6,5 +6,6 @@
     <color name="colorYellow">#FCF664</color>
     <color name="colorLightYellow">#FFF814</color>
     <color name="colorWhite">#FFFFFF</color>
+    <color name="colorGrey">#CACACA</color>
     <color name="colorBlack">#000000</color>
 </resources>

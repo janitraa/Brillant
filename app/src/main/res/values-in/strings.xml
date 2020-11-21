@@ -2,6 +2,8 @@
 <resources>
     <string name="app_name">Brillant</string>
     <string name="greetings">Halo!</string>
+    <string name="welcome">Selamat Datang di Brillant!</string>
+    <string name="app">Ini adalah aplikasi untuk membantu kamu\n tidak kelewatan deadline</string>
     <string name="mood_question">Bagaimana mood kamu hari ini?</string>
     <string name="happy">Senang</string>
     <string name="sad">Sedih</string>

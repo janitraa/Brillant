@@ -7,6 +7,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import id.ac.ui.cs.mobileprogramming.janitra.brillant.ui.HomepageFragment
 import id.ac.ui.cs.mobileprogramming.janitra.brillant.ui.ListDeadlineFragment
 import id.ac.ui.cs.mobileprogramming.janitra.brillant.ui.ProfileFragment
 
@@ -20,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         navbar.setOnNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.navigation_home -> {
-                    navigateToOtherMenu(ListDeadlineFragment())
+                    navigateToOtherMenu(HomepageFragment())
                 }
 
                 R.id.navigation_deadline -> {

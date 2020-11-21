@@ -27,9 +27,6 @@ class EditProfileViewModel (application: Application) : AndroidViewModel(applica
                 val imageString = convertBitmap(image)
                 profile = Profile(name = name, email = email, dob = dob, goals = goals, dreamJob = dreamJob, image = imageString)
                 profileRepository.insertProfile(profile)
-
-//                prof.value = profile
-//                loaded.value = true
                 profiles = profileRepository.getAllProfile()
             }
             prof.value = profiles

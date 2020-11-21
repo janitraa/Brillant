@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Brillant</string>
     <string name="greetings">Hello!</string>
+    <string name="welcome">Welcome to Brillant!</string>
+    <string name="app">This is an app to help you\n not miss the deadlines</string>
+    <string name="how">Add your deadlines on Deadline section</string>
     <string name="mood_question">How\'s your mood today?</string>
     <string name="happy">Happy</string>
     <string name="sad">Sad</string>

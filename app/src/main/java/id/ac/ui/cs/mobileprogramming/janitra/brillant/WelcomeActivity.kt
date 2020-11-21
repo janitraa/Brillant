@@ -3,6 +3,7 @@ package id.ac.ui.cs.mobileprogramming.janitra.brillant
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 
 class WelcomeActivity : AppCompatActivity() {
@@ -11,6 +12,7 @@ class WelcomeActivity : AppCompatActivity() {
     lateinit var sadBtn: ImageButton
     lateinit var fearBtn: ImageButton
     lateinit var angryBtn: ImageButton
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +36,7 @@ class WelcomeActivity : AppCompatActivity() {
             val context = sadBtn.context
             val intent = Intent(context, MotivationActivity::class.java)
             intent.putExtra("message", "Hey, it's okay to cry. Find your happiness around you.")
-            intent.putExtra("photo", "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F23%2F2020%2F04%2F10%2Fdepression-and-anxiety-quotes-motivation-inspirational-corrie-ten-boom.jpg")
+            intent.putExtra("photo", "https://images.squarespace-cdn.com/content/v1/58a7541bd482e9746468c47c/1560375202427-KRQYK5I8F9WDYPULQZ0G/ke17ZwdGBToddI8pDm48kAf-OpKpNsh_OjjU8JOdDKBZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpwkCFOLgzJj4yIx-vIIEbyWWRd0QUGL6lY_wBICnBy59Ye9GKQq6_hlXZJyaybXpCc/body%E2%80%9CYou+are+not+a+mistake.+You+are+not+a+problem+to+be+solved.+But+you+won%E2%80%99t+discover+this+until+you+are+willing+to+stop+banging+your+head+against+the+wall+of+shaming+and+caging+and+fearing+yourself.%E2%80%9D++%E2%80%94+Geneen+Roth+++positivity+quote+-+Geneen+Roth.png")
             context.startActivity(intent)
             finish()
         }
@@ -51,7 +53,7 @@ class WelcomeActivity : AppCompatActivity() {
         angryBtn.setOnClickListener{
             val context = angryBtn.context
             val intent = Intent(context, MotivationActivity::class.java)
-            intent.putExtra("message", "Hey, keep calm. Don't also ruin other people's mood.")
+            intent.putExtra("message", "Hey, keep calm. Don't ruin other people's mood, okay?")
             intent.putExtra("photo", "https://www.ryrob.com/wp-content/uploads/2017/08/Hustle_Quotes_Motivation_-The-trouble-for-most-people-is-they-don%E2%80%99t--866x1024.jpg")
             context.startActivity(intent)
             finish()

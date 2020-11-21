@@ -29,7 +29,7 @@ class MotivationActivity : AppCompatActivity() {
         Picasso.get()
             .load(extrasImg)
             .placeholder(R.drawable.ic_noun_loading)
-            .resize(200, 200)
+            .resize(700, 700)
             .memoryPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE)
             .networkPolicy(NetworkPolicy.NO_CACHE, NetworkPolicy.NO_STORE)
             .centerCrop()

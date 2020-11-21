@@ -9,7 +9,7 @@
     <string name="fear">Fear</string>
     <string name="angry">Angry</string>
     <string name="upload_image"><u>Upload Image</u></string>
-    <string name="required">Required</string>
+    <string name="required">Required (max 2MB)</string>
     <string name="name">Name</string>
     <string name="email">Email</string>
     <string name="dob">Date of Birth</string>

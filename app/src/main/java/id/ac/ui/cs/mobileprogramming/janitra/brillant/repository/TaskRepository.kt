@@ -25,16 +25,6 @@ class TaskRepository private constructor(
         return allTask
     }
 
-    @kotlinx.coroutines.ObsoleteCoroutinesApi
-    fun deleteTask(task: Task) = GlobalScope.launch(thread) {
-        taskDao.delete(task)
-    }
-
-    @kotlinx.coroutines.ObsoleteCoroutinesApi
-    fun updateTask(task: Task) = GlobalScope.launch(thread) {
-        taskDao.update(task)
-    }
-
     companion object {
         @Volatile private var instance: TaskRepository? = null
 

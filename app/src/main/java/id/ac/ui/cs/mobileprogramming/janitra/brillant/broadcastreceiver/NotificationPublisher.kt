@@ -21,13 +21,10 @@ class NotificationPublisher : BroadcastReceiver() {
                 "NOTIFICATION_CHANNEL_NAME",
                 importance
             )
-//            assert(notificationManager != null)
             notificationManager.createNotificationChannel(notificationChannel)
         }
         val id = intent?.getIntExtra(NOTIFICATION_ID, 0)
 
-//        assert(notificationManager != null)
-//        notificationManager.notify(id, notification)
         if (id != null) {
             notificationManager.notify(id, notification)
         } else {

@@ -16,7 +16,6 @@ import id.ac.ui.cs.mobileprogramming.janitra.brillant.R
 import id.ac.ui.cs.mobileprogramming.janitra.brillant.broadcastreceiver.NotificationPublisher
 import java.text.SimpleDateFormat
 
-
 class NewTaskActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
     var hour: Int = 0
     var minute: Int = 0
@@ -62,8 +61,6 @@ class NewTaskActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
         editTags = findViewById(R.id.edit_tags)
         editStatus = findViewById(R.id.edit_status)
 
-        supportActionBar?.setHomeActionContentDescription("CANCEL")
-//        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_noun_close)
         setTitle("New Task")
     }
 

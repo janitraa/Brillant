@@ -36,5 +36,6 @@ class NotificationPublisher : BroadcastReceiver() {
     companion object {
         var NOTIFICATION_ID = "notification-id"
         var NOTIFICATION = "notification"
+        var NOTIFICATION_AUDIO_ID = 9001
     }
 }

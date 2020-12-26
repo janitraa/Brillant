@@ -43,6 +43,6 @@
         android:fontFamily="@font/lato"
         android:textSize="18sp"
         android:layout_marginTop="20dp"
-        android:background="@color/colorYellow"
+        android:background="@drawable/button_rounded_corners"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>

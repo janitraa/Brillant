@@ -28,4 +28,9 @@
     <string name="save">Save</string>
     <string name="go">GO</string>
     <string name="pick">Pick a Date</string>
+    <string name="have">You have</string>
+    <string name="number">10 tasks</string>
+    <string name="far">so far</string>
+    <string name="start">START</string>
+    <string name="play">PLAY</string>
 </resources>

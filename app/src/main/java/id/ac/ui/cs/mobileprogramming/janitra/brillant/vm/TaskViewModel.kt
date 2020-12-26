@@ -10,6 +10,8 @@ class TaskViewModel (
 ): ViewModel() {
 
     private val allTask: LiveData<List<Task>> = taskRepository.getAllTask()
+    private val uniqueWords: LiveData<List<Task>> = taskRepository.getUnique()
+
 
     @kotlinx.coroutines.ObsoleteCoroutinesApi
     fun insert(task: Task) {
@@ -18,5 +20,9 @@ class TaskViewModel (
 
     fun getAllTask(): LiveData<List<Task>> {
         return allTask
+    }
+
+    fun getUnique(): LiveData<List<Task>> {
+        return uniqueWords
     }
 }

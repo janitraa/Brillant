@@ -25,6 +25,11 @@ class TaskRepository private constructor(
         return allTask
     }
 
+    fun getUnique(): LiveData<List<Task>> {
+        val uniqueWord: LiveData<List<Task>> = taskDao.getUnique()
+        return uniqueWord
+    }
+
     companion object {
         @Volatile private var instance: TaskRepository? = null
 

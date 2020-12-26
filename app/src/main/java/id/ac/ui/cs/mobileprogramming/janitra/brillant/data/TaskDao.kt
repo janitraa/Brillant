@@ -18,4 +18,7 @@ interface TaskDao {
 
     @Update
     fun update(task: Task)
+
+    @Query("SELECT * FROM task_details GROUP BY taskName ORDER BY dueDate ASC")
+    fun getUnique(): LiveData<List<Task>>
 }

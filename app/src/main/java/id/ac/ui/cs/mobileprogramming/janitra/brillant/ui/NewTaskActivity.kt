@@ -113,7 +113,6 @@ class NewTaskActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
         cal.set(Calendar.MINUTE, minute)
         cal.set(Calendar.SECOND, 0)
         updateLabel()
-
     }
 
     private fun updateLabel() {

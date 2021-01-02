@@ -32,6 +32,10 @@
     <string name="have">Kamu memiliki</string>
     <string name="number">10 tugas</string>
     <string name="far">sejauh ini</string>
+    <string name="chronometer">Kamu bisa ukur\n berapa lama pengerjaan dan\nmerekam apa saja yg kamu katakan\nselama mengerjakan suatu task</string>
     <string name="start">MULAI</string>
+    <string name="stop">BERHENTI</string>
     <string name="play">PUTAR</string>
+    <string name="audio">Jumlah rekaman hari ini:</string>
+    <string name="count">0</string>
 </resources>

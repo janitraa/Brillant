@@ -30,12 +30,11 @@ class NotificationPublisher : BroadcastReceiver() {
         } else {
             Toast.makeText(context, "Notification ID Null", Toast.LENGTH_SHORT).show()
         }
-
     }
 
     companion object {
         var NOTIFICATION_ID = "notification-id"
         var NOTIFICATION = "notification"
-        var NOTIFICATION_AUDIO_ID = 9001
+        var NOTIFICATION_AUDIO_ID = 10001
     }
 }

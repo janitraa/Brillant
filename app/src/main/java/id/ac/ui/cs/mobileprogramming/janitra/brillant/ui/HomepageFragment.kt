@@ -20,11 +20,9 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import id.ac.ui.cs.mobileprogramming.janitra.brillant.MainActivity
 import id.ac.ui.cs.mobileprogramming.janitra.brillant.util.InjectorUtils
 import id.ac.ui.cs.mobileprogramming.janitra.brillant.vm.TaskViewModel
-//import id.ac.ui.cs.mobileprogramming.janitra.brillant.databinding.FragmentHomepageBinding
 import id.ac.ui.cs.mobileprogramming.janitra.brillant.R
 import id.ac.ui.cs.mobileprogramming.janitra.brillant.broadcastreceiver.NotificationRecorder
 import kotlinx.android.synthetic.main.fragment_homepage.view.*
@@ -38,8 +36,9 @@ class HomepageFragment: Fragment(), View.OnClickListener {
     private lateinit var playButton: Button
     private lateinit var sosButton: Button
     private lateinit var notifBase: NotificationRecorder
-    private lateinit var navbar: BottomNavigationView
-    private lateinit var glsurface: GLSurfaceView
+    private var counter: Int = 0
+    private lateinit var count: TextView
+    private external fun addCounter(counter: Int): Int
 
     var mAudioRecorder: MediaRecorder? = null
     var running: Boolean = false
@@ -47,14 +46,18 @@ class HomepageFragment: Fragment(), View.OnClickListener {
 
     val PERMISSION_REQUEST_RECORD_AUDIO = 111
 
+    companion object {
+        init {
+            System.loadLibrary("native-lib")
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         mView = inflater.inflate(R.layout.fragment_homepage, container, false)
-//        val binding = FragmentHomepageBinding.inflate(inflater, container, false)
-//        this.mView = binding.root
 
         mView.glSurface.setRenderer(GLRenderer())
 
@@ -63,20 +66,20 @@ class HomepageFragment: Fragment(), View.OnClickListener {
         val action = activity?.intent?.extras?.getString("action")
 
         if (action == NotificationRecorder.ACTION_STOP_RECORDER) {
-            Toast.makeText(context, "YES BISA", Toast.LENGTH_LONG).show()
+            Toast.makeText(context, "Recording is stopped", Toast.LENGTH_LONG).show()
         }
 
         playButton = mView.findViewById(R.id.play_button)
         sosButton = mView.findViewById(R.id.start_stop_button)
 
-        notifBase = NotificationRecorder(mView.context) // Critical
+        notifBase = NotificationRecorder(mView.context)
 
         chronometer = mView.findViewById(R.id.chronometer)
 
         sosButton.setOnClickListener(this)
         playButton.setOnClickListener(this)
 
-        checkAudioPermission()
+        checkPermission()
 
         return mView
     }
@@ -93,33 +96,49 @@ class HomepageFragment: Fragment(), View.OnClickListener {
 
     fun showCurrentTaskNumber(size: Int) {
         val taskNumber: TextView = mView.findViewById(R.id.task_number)
+
         taskNumber.setText("$size tasks")
     }
 
-    fun checkAudioPermission() {
+    class GLRenderer : GLSurfaceView.Renderer {
+        var color = 0f
+        var colorVelocity = 1f/60f
 
+        override fun onDrawFrame(gl: GL10){
+            if (color > 1 || color < 0){
+                colorVelocity = -colorVelocity
+            }
+            color += colorVelocity
+
+            gl.glClearColor(color * 0.5f, color, color, 1f)
+            gl.glClear(GLES10.GL_COLOR_BUFFER_BIT)
+        }
+
+        override fun onSurfaceCreated(p0: GL10?, p1: javax.microedition.khronos.egl.EGLConfig?) {}
+        override fun onSurfaceChanged(gl: GL10, width: Int, height: Int){}
+    }
+
+    fun checkPermission() {
         if (ContextCompat.checkSelfPermission(mView.context, "android.permission.RECORD_AUDIO") != PackageManager.PERMISSION_GRANTED) {
 
             if (shouldShowRequestPermissionRationale(Manifest.permission.RECORD_AUDIO)) {
                 val builder = AlertDialog.Builder(context)
-                builder.setMessage("Permission to access the microphone is required for this app to record audio.")
+                builder.setMessage("Requiring a permission to access the microphone to record audio.")
                     .setTitle("Permission required")
 
                 builder.setPositiveButton("OK") { dialog, id ->
-                    permissionRequest()
+                    requestPermission()
                 }
 
                 val dialog = builder.create()
                 dialog.show()
             } else {
-                permissionRequest()
+                requestPermission()
             }
-
         }
     }
 
     fun mediaRecorderSetup() {
-
         mAudioRecorder = MediaRecorder()
 
         val outputFile = context?.filesDir?.absolutePath + "/recording.3gp"
@@ -130,7 +149,7 @@ class HomepageFragment: Fragment(), View.OnClickListener {
         mAudioRecorder?.setOutputFile(outputFile)
     }
 
-    fun permissionRequest() {
+    fun requestPermission() {
         requestPermissions(
             arrayOf(Manifest.permission.RECORD_AUDIO),
             PERMISSION_REQUEST_RECORD_AUDIO)
@@ -159,10 +178,10 @@ class HomepageFragment: Fragment(), View.OnClickListener {
             mediaPlayer.setDataSource(outputFile)
             mediaPlayer.prepare()
             mediaPlayer.start()
-            Toast.makeText(context, "Playing Audio", Toast.LENGTH_LONG)
+            Toast.makeText(context, "Audio is playing", Toast.LENGTH_LONG)
                 .show()
         } catch (e: Exception) {
-            // make something
+
         }
     }
 
@@ -174,7 +193,7 @@ class HomepageFragment: Fragment(), View.OnClickListener {
         chronometer.stop()
         pauseOffset = SystemClock.elapsedRealtime() - chronometer.getBase()
         running = false
-        sosButton.setText("start")
+        sosButton.setText(R.string.start)
         pauseOffset = 0
 
         // Recorder
@@ -183,13 +202,14 @@ class HomepageFragment: Fragment(), View.OnClickListener {
         mAudioRecorder = null
 
         playButton.isEnabled = true
-        Toast.makeText(context, "Audio Recorder stopped", Toast.LENGTH_LONG).show()
+        Toast.makeText(context, "Recorder stopped", Toast.LENGTH_LONG).show()
 
         // Enable Navbar
         (activity as MainActivity).navigationToggle(true)
     }
 
     fun startRecording(v: View) {
+        count = mView.findViewById(R.id.counter)
 
         notifBase.initAudioNotification()
         mediaRecorderSetup()
@@ -198,40 +218,25 @@ class HomepageFragment: Fragment(), View.OnClickListener {
         chronometer.setBase(SystemClock.elapsedRealtime() - pauseOffset)
         chronometer.start()
         running = true
-        sosButton.setText("stop")
+        sosButton.setText(R.string.stop)
 
         // Recorder
         try {
             mAudioRecorder?.prepare()
             mAudioRecorder?.start()
         } catch (ise: IllegalStateException) {
-            Toast.makeText(context, "Error: (ISE) Retry again or contact the owner", Toast.LENGTH_LONG).show()
+            Toast.makeText(context, "Error: (ISE)", Toast.LENGTH_LONG).show()
 
         } catch (ioe: IOException) {
-            Toast.makeText(context, "Error: (ioe) Retry again or contact the owner", Toast.LENGTH_LONG).show()
+            Toast.makeText(context, "Error: (ioe)", Toast.LENGTH_LONG).show()
         }
         playButton.isEnabled = false
         Toast.makeText(context, "Recording started", Toast.LENGTH_LONG).show()
 
         // Disable Navbar
         (activity as MainActivity).navigationToggle(false)
-    }
 
-    class GLRenderer : GLSurfaceView.Renderer {
-        var color = 0f
-        var colorVelocity = 1f/60f
-
-        override fun onDrawFrame(gl: GL10){
-            if (color > 1 || color < 0){
-                colorVelocity = -colorVelocity
-            }
-            color += colorVelocity
-
-            gl.glClearColor(color * 0.5f, color, color, 1f)
-            gl.glClear(GLES10.GL_COLOR_BUFFER_BIT)
-        }
-
-        override fun onSurfaceCreated(p0: GL10?, p1: javax.microedition.khronos.egl.EGLConfig?) {}
-        override fun onSurfaceChanged(gl: GL10, width: Int, height: Int){}
+        counter = addCounter(counter)
+        count.text = counter.toString()
     }
 }

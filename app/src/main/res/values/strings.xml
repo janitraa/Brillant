@@ -29,8 +29,12 @@
     <string name="go">GO</string>
     <string name="pick">Pick a Date</string>
     <string name="have">You have</string>
-    <string name="number">10 tasks</string>
+    <string name="number">tasks</string>
     <string name="far">so far</string>
+    <string name="chronometer">You can measure\nhow long it takes and\nrecord what you say\nwhile working on that task</string>
     <string name="start">START</string>
+    <string name="stop">STOP</string>
     <string name="play">PLAY</string>
+    <string name="audio">Total recording today:</string>
+    <string name="count">0</string>
 </resources>

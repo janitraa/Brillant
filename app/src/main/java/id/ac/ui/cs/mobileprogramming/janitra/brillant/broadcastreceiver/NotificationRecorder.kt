@@ -1,6 +1,5 @@
 package id.ac.ui.cs.mobileprogramming.janitra.brillant.broadcastreceiver
 
-import android.app.AlarmManager
 import android.app.Notification
 import android.app.NotificationManager
 import android.app.PendingIntent
@@ -11,8 +10,6 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import id.ac.ui.cs.mobileprogramming.janitra.brillant.MainActivity
 import id.ac.ui.cs.mobileprogramming.janitra.brillant.R
-import id.ac.ui.cs.mobileprogramming.janitra.brillant.ui.HomepageFragment
-import java.util.*
 
 class NotificationRecorder (val ctx: Context) {
 
@@ -48,7 +45,7 @@ class NotificationRecorder (val ctx: Context) {
             .setContentTitle("Brillant is Recording")
             .setContentText("-")
             .setContentIntent(contentIntent)
-            .setSmallIcon(R.drawable.ic_launcher_foreground)
+            .setSmallIcon(R.drawable.ic_logo_foreground)
             .setAutoCancel(false)
             .setProgress(100, 0, true)
             .setLights(Color.BLUE, 100, 100)

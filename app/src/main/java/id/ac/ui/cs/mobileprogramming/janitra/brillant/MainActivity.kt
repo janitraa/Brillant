@@ -29,10 +29,10 @@ class MainActivity : AppCompatActivity() {
         val navbar: BottomNavigationView = findViewById(R.id.navigation)
 
         if (isEnabled == true) {
-            navbar.setEnabled(true);
-            navbar.setFocusable(true);
-            navbar.setFocusableInTouchMode(true);
-            navbar.setClickable(true);
+            navbar.setEnabled(true)
+            navbar.setFocusable(true)
+            navbar.setFocusableInTouchMode(true)
+            navbar.setClickable(true)
             navbar.setOnNavigationItemSelectedListener { menuItem ->
                 when (menuItem.itemId) {
                     R.id.navigation_home -> {
@@ -53,10 +53,10 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         } else {
-            navbar.setEnabled(false);
-            navbar.setFocusable(false);
-            navbar.setFocusableInTouchMode(false);
-            navbar.setClickable(false);
+            navbar.setEnabled(false)
+            navbar.setFocusable(false)
+            navbar.setFocusableInTouchMode(false)
+            navbar.setClickable(false)
             navbar.setOnNavigationItemSelectedListener { menuItem ->
                 Toast.makeText(applicationContext, "Navigation Bar is disabled until Recorder is stopped", Toast.LENGTH_LONG).show()
                 true
